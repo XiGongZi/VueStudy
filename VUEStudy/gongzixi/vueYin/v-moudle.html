@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="static/js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="number" v-model="firstValue" @keyUp="addFun">
+        <select name="" id="" :value="selectFuhao" @change="addFun">
+            <option v-for="item in fuhao" :value="item">{{item}}</option>
+        </select>
+        <input type="number" v-model="secValue" @keyUp="addFun">=
+        <input type="number" v-model="result">
+        <input type="button" value="提交" @click.prevent="addFun">
+    </div>
+</body>
+<script>
+var vm = new Vue({
+    el:'#app',
+    data:{
+        firstValue:0,
+        secValue:0,
+        result:0,
+        fuhao:["+","-","x","/"],
+        selectFuhao:"+",
+    },
+    methods:{
+        addFun(){
+            switch (this.selectFuhao) {
+                case "+":
+                    this.result = parseInt(this.firstValue) + parseInt(this.secValue);
+                    break;
+                case "-":
+                    this.result = parseInt(this.firstValue) - parseInt(this.secValue);
+                    break;
+                case "x":
+                    this.result = parseInt(this.firstValue) * parseInt(this.secValue);
+                    break;
+                case "/":
+                    this.result = parseInt(this.firstValue) / parseInt(this.secValue);
+                    break;
+                default:
+                    break;
+            }
+            console.log(this.result)
+        },
+        addFun2(){
+            console.log("aaa")
+        }
+    },
+});
+</script>
+</html>

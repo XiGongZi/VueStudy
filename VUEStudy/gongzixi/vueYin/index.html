@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./static/js/vue.min.js"> </script>
+    <style>
+    [v-clock]{
+        display: none;
+    }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- v-clock 解决闪烁问题 -->
+        <p v-clock>{{ msg }}</p>
+        <!-- v-text 替换标签内所有元素 -->
+        <h1 v-text='msg2'></h1>
+
+        <p v-html='msg3'></p>
+        <!-- v-bind:  或者 就一个 :  数据绑定，将后面引号内变成js表达式，msg4成为了变量 -->
+        <!-- 绑定事件，v-on:click  或   @click -->
+        <input type="button" value="按钮" v-bind:title="msg4" v-on:click="show">
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            msg:'hello world',
+            msg2:'你好 世界',
+            msg3:'<h1>I am the boon</h1>',
+            msg4:'button!!!'
+        },
+        methods:{
+            show:function(){
+                alert(1)
+            }
+        }
+    });
+</script>
+</html>

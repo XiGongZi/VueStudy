@@ -1,4 +1,4 @@
-<template>
+ <template>
     <div>
         <input type="text" v-model.number="msg">
         <p>{{ message }}</p>
